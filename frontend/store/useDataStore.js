@@ -3,11 +3,14 @@ import { axiosInstance } from "../src/lib/axios";
 
 export const useDataStore = create((set, get) => ({
     htmlLayout: '',
-        title:'titled',
-        content:'content',
+        title:'Title',
+        content:'Content',
         img:'link',
         currentEdit:'title',
     loading: false,
+    setImage: (value)=>{
+      set({img: value});
+    },
     
     getHtmlLayout: async ()=>{
         set({loading: true});
@@ -34,9 +37,6 @@ export const useDataStore = create((set, get) => ({
           case 'content':
             set({content: value});
             break;  
-          case 'img':
-            set({img : 'no link'});
-            break;
           default:
             console.log("Invalid");    
         }
@@ -47,6 +47,7 @@ export const useDataStore = create((set, get) => ({
       },
       postObject: async()=>{
         try{
+          set({loading:true});
           const title=get().title;
           const content=get().content;
           const imageUrl=get().img;
@@ -56,6 +57,8 @@ export const useDataStore = create((set, get) => ({
           }
         }catch(e){
           console.log("error while posting the html object",e.message);
+        }finally{
+          set({loading:false});
         }
       }  
 

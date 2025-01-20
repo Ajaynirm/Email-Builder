@@ -25,6 +25,7 @@ const Preview = () => {
     htmlLayout,
     title,content,img,postObject
   } = useDataStore();
+
   const [html, setHtml] = useState('');
   const postHtmlObject =(e)=>{
     e.preventDefault();
@@ -45,15 +46,18 @@ const Preview = () => {
         updateHtmlContent('title', title);
      
         updateHtmlContent('content',content);
+        
       
       const imageElement = doc.querySelector('img');
+      console.log('no')
       if (imageElement) {
+        console.log("yes")
         imageElement.src = img;
       }
 
       setHtml(doc.body.innerHTML);
     }
-  }, [title,content]);
+  }, [title,content,img]);
 
 
   return (
@@ -63,7 +67,7 @@ const Preview = () => {
       <h2 className="p-2">Preview</h2>
       {(htmlLayout) ? (
         <div>
-        <div className='border-double border-4 border-indigo-600  max-w-full'
+        <div className='border-double border-4 border-indigo-600  '
         ref={htmlRef}
         dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(html) }}
         contentEditable
@@ -79,7 +83,6 @@ const Preview = () => {
         <div>Error while getting HTML template from backend</div>
       )
     }
-      
       
     </div>
     </>

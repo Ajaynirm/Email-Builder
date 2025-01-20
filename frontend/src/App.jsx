@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import EmailEditor from './components/EmailEditor';
 import Preview from './components/Preview';
+import ImageUploader from "./components/ImageUploader"
 import {useDataStore} from '../store/useDataStore';
 import './App.css';
 
@@ -24,6 +25,7 @@ function App() {
         </div>
        <div>
         <EmailEditor/>
+        <ImageUploader />
     </div>
        </div>
        

@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import emailRoutes from '../src/Routes/email.routes.js'
 import dotenv from "dotenv"
+import { connectDB } from './lib/db.js';
 
 
 
@@ -21,9 +22,7 @@ app.use(
 app.use('/uploads', express.static('uploads')); // Serve uploaded files
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
+connectDB();
 
 // Use routes
 app.use('/api/emails', emailRoutes);
