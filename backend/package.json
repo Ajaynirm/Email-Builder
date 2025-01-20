@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "echo 'No build script defined for backend'",
     "dev": "node src/server.js",
-    "start": "node sr/server.js"
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",
