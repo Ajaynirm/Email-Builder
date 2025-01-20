@@ -1,0 +1,37 @@
+/* Custom Toolbar Buttons */
+.ql-toolbar .ql-picker {
+    color: black; /* Green color for dropdown text */
+    background-color: #dfd0d0;
+    margin: 3px;
+    margin-bottom: 20px;
+  }
+  
+  .ql-toolbar .ql-picker-label:hover,
+  .ql-toolbar .ql-picker-item:hover {
+    color: #ff5722; /* Hover color for dropdowns */
+  }
+  
+  /* Editor Background and Font */
+  .ql-container {
+    background-color: #f9f9f9;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 8px;
+    min-height: 200px;
+  }
+  
+  /* Customize Placeholder Text */
+  .ql-editor.ql-blank::before {
+    color: #bbb;
+    font-style: italic;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  h2{
+    font-size: 24px;
+  }
+  h3{
+   font-size: 20px;
+  }
