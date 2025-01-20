@@ -6,9 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo 'No build script defined for backend'",
     "dev": "node src/server.js",
     "start": "node sr/server.js"
-    
   },
   "keywords": [],
   "author": "",
