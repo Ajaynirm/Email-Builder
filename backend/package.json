@@ -7,8 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node src/server.js",
-    "start": "node sr/server.js",
-    "build": "npm install --prefix backend && npm run build --prefix backend"
+    "start": "node sr/server.js"
+    
   },
   "keywords": [],
   "author": "",
