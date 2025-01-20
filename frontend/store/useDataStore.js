@@ -44,7 +44,19 @@ export const useDataStore = create((set, get) => ({
       setCurrEdit: (value)=>{
         set({currentEdit:value});
 
-      }
-        
+      },
+      postObject: async()=>{
+        try{
+          const title=get().title;
+          const content=get().content;
+          const imageUrl=get().img;
+          const res= await axiosInstance.post('/emails/uploadEmailConfig',{title,content,imageUrl});
+          if(res){
+            console.log("Object saved in Backend");
+          }
+        }catch(e){
+          console.log("error while posting the html object",e.message);
+        }
+      }  
 
 }))

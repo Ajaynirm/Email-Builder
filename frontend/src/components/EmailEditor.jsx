@@ -32,7 +32,6 @@ const formats = [
 ]
 
 const handleFieldChange = (value) => {   
-  console.log("try to change",value);
   setVariables(value);
 };
 
@@ -47,6 +46,7 @@ const editImage =()=>{
  setCurrEdit('img')
 }
 
+
   return (
     <div className='flex flex-col justify-start items-center gap-5 w-[500px]'>
       <h1>Email Editor</h1>
@@ -57,6 +57,7 @@ const editImage =()=>{
        formats={formats}
         value={(currentEdit==='title')?title:(currentEdit==='content')?content:img} 
         onChange={(value) => handleFieldChange(value)} 
+      
       />
       <div className='flex justify-between items-center w-96'>
         <div><button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full' onClick={editTitle}>Title</button></div>
