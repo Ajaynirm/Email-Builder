@@ -12,7 +12,10 @@ app.use(bodyParser.json());
 
 app.use(
   cors({
-    origin: "https://email-builder-gold-nu.vercel.app/",
+    origin: [
+      "https://email-builder-gold-nu.vercel.app/",
+      "http://localhost:5173",
+    ],
     credentials: true,
   })
 );

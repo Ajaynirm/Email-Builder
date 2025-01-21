@@ -23,7 +23,7 @@ export const useDataStore = create((set, get) => ({
             console.error('Unexpected response format:', res.data);
           }
         } catch (e) {
-          console.error('Error fetching layout:', e.message);
+          console.error('Error fetching layout:', e);
         } 
       },
       setVariables: (value) =>{

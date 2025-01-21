@@ -10,12 +10,8 @@ const EmailEditor = () => {
    const {title,content,img,currentEdit,setCurrEdit,setVariables,setImage,getHtmlLayout}=useDataStore();
   
    useEffect(() => {
-    toast.promise(getHtmlLayout(),{
-      loading: "Html Layout Fetching...",
-      success: "Html Fetched successfully!",
-      error: "Layout Fetching Failed. Refresh the page.",
-    })
-    
+    toast.success("Html Layout Fetching...");
+    getHtmlLayout();
   }, []);
 
 const modules = {
