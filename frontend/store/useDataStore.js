@@ -1,10 +1,11 @@
 import { create } from "zustand";
 import { axiosInstance } from "../src/lib/axios";
 
+
 export const useDataStore = create((set, get) => ({
     htmlLayout: '',
         title:'Title',
-        content:'Content',
+        content:'Content - You can add paragraphs, links, or any other text content.',
         img:'link',
         currentEdit:'title',
     loading: false,
@@ -13,19 +14,17 @@ export const useDataStore = create((set, get) => ({
     },
     
     getHtmlLayout: async ()=>{
-        set({loading: true});
         try {
           const res = await axiosInstance.get('/emails/getEmailLayout');
           if (res.data) {
            set({htmlLayout:res.data});
+           console.log("got response")
           } else {
             console.error('Unexpected response format:', res.data);
           }
         } catch (e) {
           console.error('Error fetching layout:', e.message);
-        } finally{
-            set({loading:false});
-        }
+        } 
       },
       setVariables: (value) =>{
         

@@ -3,11 +3,20 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useDataStore } from '../../store/useDataStore';
 import "./editor.css";
-
+import toast,{Toaster} from "react-hot-toast";
+import ImageUploader from './ImageUploader';
 
 const EmailEditor = () => {
-   const {title,content,img,currentEdit,setCurrEdit,setVariables,setImage}=useDataStore();
+   const {title,content,img,currentEdit,setCurrEdit,setVariables,setImage,getHtmlLayout}=useDataStore();
   
+   useEffect(() => {
+    toast.promise(getHtmlLayout(),{
+      loading: "Html Layout Fetching...",
+      success: "Html Fetched successfully!",
+      error: "Layout Fetching Failed. Refresh the page.",
+    })
+    
+  }, []);
 
 const modules = {
   toolbar: [
@@ -68,6 +77,7 @@ const updateImage =(e)=>{
 
   return (
     <div className='flex flex-col justify-start items-center gap-5 w-[500px]'>
+      <Toaster />
       <h1>Email Editor</h1>
       <ReactQuill className='w-[400px]'
       theme="snow"
@@ -78,11 +88,15 @@ const updateImage =(e)=>{
         onChange={(value) => handleFieldChange(value)} 
       
       />
-      <div className='flex justify-between items-center w-96 p-10'>
-        <div><button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full' onClick={editTitle}>Title</button></div>
-        <div><button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full' onClick={editContent}>Content</button></div>
-        
+      <div className='pt-5 font-serif animate-pulse'>Click Below to Edit</div>
+      <div className='flex justify-between items-center w-96 pt-5'>
+        <div><button className='btn btn-neutral  text-white font-bold py-2 px-4' onClick={editTitle}>Title</button></div>
+        <div><button className='btn btn-neutral  font-bold py-2 px-4 ' onClick={editContent}>Content</button></div>
+        <div>
+          <ImageUploader />
+        </div>
       </div>
+     
     </div>
   );
 };
