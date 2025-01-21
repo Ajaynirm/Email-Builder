@@ -49,9 +49,7 @@ const Preview = () => {
         
       
       const imageElement = doc.querySelector('img');
-      console.log('no')
       if (imageElement) {
-        console.log("yes")
         imageElement.src = img;
       }
 
