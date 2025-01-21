@@ -27,7 +27,6 @@ export const useDataStore = create((set, get) => ({
         } 
       },
       setVariables: (value) =>{
-        
         const old=get().currentEdit;
         switch(old){
           case 'title':
